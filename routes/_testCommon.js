@@ -3,7 +3,7 @@
 const db = require("../db.js");
 const User = require("../models/user");
 const Company = require("../models/company");
-const { createToken } = require("../helpers/tokens");
+const { createToken, createTokenAdmin } = require("../helpers/tokens");
 
 async function commonBeforeAll() {
   // noinspection SqlWithoutWhere
@@ -76,6 +76,7 @@ async function commonAfterAll() {
 
 
 const u1Token = createToken({ username: "u1", isAdmin: true });
+const adminToken = createTokenAdmin({ username: "u1", isAdmin: false });
 
 
 module.exports = {
@@ -84,4 +85,5 @@ module.exports = {
   commonAfterEach,
   commonAfterAll,
   u1Token,
+  adminToken
 };

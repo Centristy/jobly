@@ -12,6 +12,7 @@ const authRoutes = require("./routes/auth");
 const companiesRoutes = require("./routes/companies");
 const usersRoutes = require("./routes/users");
 const jobRoutes = require("./routes/jobs")
+const pathToRegexp = require('path-to-regexp');
 
 const morgan = require("morgan");
 
@@ -21,6 +22,7 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authenticateJWT);
+app.use(pathToRegexp())
 
 app.use("/auth", authRoutes);
 app.use("/companies", companiesRoutes);

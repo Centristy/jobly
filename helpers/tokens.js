@@ -15,4 +15,18 @@ function createToken(user) {
   return jwt.sign(payload, SECRET_KEY);
 }
 
-module.exports = { createToken };
+
+function createTokenAdmin(user) {
+
+  console.assert(user.isAdmin == true,
+    "createToken with admin property");
+
+  let payload = {
+    username: user.username,
+    isAdmin: user.isAdmin || true,
+  };
+
+  return jwt.sign(payload, SECRET_KEY);
+}
+
+module.exports = { createToken, createTokenAdmin };

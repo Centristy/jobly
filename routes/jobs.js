@@ -15,7 +15,7 @@ const jobNewSchema = require("../schemas/jobNew.json");
 const jobUpdateSchema = require("../schemas/jobUpdate.json");
 
 const router = new express.Router();
-
+router.use()
 
 /** POST / { job } =>  { job }
  *
